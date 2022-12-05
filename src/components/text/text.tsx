@@ -5,13 +5,14 @@ import { Texture } from 'three';
 export interface ITextProps {
     text: string;
     texture: Texture;
+    size: number;
 };
 
-export const Text: React.FC<ITextProps> = ({ text, texture }) => {
+export const Text: React.FC<ITextProps> = ({ text, size, texture }) => {
     return (
         <Text3D
             font="/typeface/helvetiker_regular.typeface.json"
-            size={0.5}
+            size={size}
             height={0.3}
             curveSegments={12}
             bevelEnabled={true}
