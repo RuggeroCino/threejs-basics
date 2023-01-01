@@ -12,9 +12,9 @@ export const Donut: React.FC<IDonutProps> = ({ texture, position, initialRotatio
     const donutRef = useRef<Mesh>(null);
     const rotationProperty = initialRotation < 0.5 ? 'y' : 'x';
 
-    useFrame(() => {
+    useFrame((state, delta) => {
         if (donutRef.current) {
-            donutRef.current.rotation[rotationProperty] += 0.01;
+            donutRef.current.rotation[rotationProperty] += (delta / 2);
         }
     })
 

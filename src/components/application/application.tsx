@@ -5,7 +5,6 @@ import { TextureLoader } from 'three/src/loaders/TextureLoader'
 import React from 'react';
 import { Donut } from '../donut';
 import { Text } from '../text';
-import { Camera } from '../camera';
 import './application.css';
 
 export interface IApplicationProps {
@@ -30,8 +29,7 @@ export const Application: React.FC<IApplicationProps> = ({ className }) => {
     
     return (
         <div className={classNames('application', className)}>
-            <Canvas>
-                <Camera />
+            <Canvas camera={{ position: [-3, 1, 5], fov: 95, near: 0.1, far: 100 }}>
                 <OrbitControls maxDistance={8} minDistance={1} />
                 {[...Array(donutsNumber).keys()].map((index) => (
                     <Donut
